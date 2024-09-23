@@ -9,7 +9,7 @@ namespace RPG.Combat
     {
         [SerializeField] GameObject weaponPrefab = null;
         [SerializeField] AnimatorOverrideController animatorOverride = null;
-        [SerializeField] Projectile projectile;
+        [SerializeField] Projectile projectile = null;
         [SerializeField] float weaponRange = 2f;
         public float WeaponRange { get { return weaponRange; } }
         [SerializeField] float weaponDamage = 10f;
@@ -55,7 +55,7 @@ namespace RPG.Combat
         public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
         {
             Projectile projectileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
-            projectileInstance.SetTarget(target);
+            projectileInstance.SetTarget(target, weaponDamage);
         }
     }
 }

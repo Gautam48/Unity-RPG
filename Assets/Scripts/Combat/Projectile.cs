@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
 
     Health target = null;
 
+    float damage = 0;
+
     void Update()
     {
         transform.LookAt(GetAimLocation());
@@ -27,8 +29,16 @@ public class Projectile : MonoBehaviour
         return target.transform.position + Vector3.up * capsule.height / 2;
     }
 
-    public void SetTarget(Health target)
+    public void SetTarget(Health target, float damage)
     {
         this.target = target;
+        this.damage = damage;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Health>() != target) return;
+        target.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }
