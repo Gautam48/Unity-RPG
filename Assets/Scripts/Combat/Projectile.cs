@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Core;
 using UnityEditor;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] Transform target = null;
     [SerializeField] float speed = 1;
+
+    Health target = null;
 
     void Update()
     {
@@ -20,8 +22,13 @@ public class Projectile : MonoBehaviour
         CapsuleCollider capsule = target.GetComponent<CapsuleCollider>();
         if (capsule == null)
         {
-            return target.position;
+            return target.transform.position;
         }
-        return target.position + Vector3.up * capsule.height / 2;
+        return target.transform.position + Vector3.up * capsule.height / 2;
+    }
+
+    public void SetTarget(Health target)
+    {
+        this.target = target;
     }
 }
