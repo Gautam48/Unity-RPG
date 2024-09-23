@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2c50b491f3578043b8e81e653b77565, type: 3}
-  m_Name: Sword
+  m_Name: Bow
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 5515491938025687824, guid: 1807855afe8f83b4abcb0176e5832a8c, type: 3}
-  animatorOverride: {fileID: 22100000, guid: 941c43166f6a5dc46bd6f09716b1a9b4, type: 2}
-  weaponRange: 3
+  weaponPrefab: {fileID: 8562339425993062972, guid: 7cee0c67cf5f0414c98e86ff10e8d261, type: 3}
+  animatorOverride: {fileID: 0}
+  weaponRange: 2
   weaponDamage: 10
-  isRgihtHanded: 1
+  isRgihtHanded: 0

@@ -11,7 +11,8 @@ namespace RPG.Combat
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [Range(0, 1)][SerializeField] float patrolSpeedFraction = 0.2f;
-        [SerializeField] Transform handTransform = null;
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Weapon defaultweapon = null;
 
         Health target;
@@ -49,7 +50,7 @@ namespace RPG.Combat
         {
             currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
-            currentWeapon.Spawn(handTransform, animator);
+            currentWeapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
         private void AttackBehaviour()
