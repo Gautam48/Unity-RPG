@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trail Red
       objectReference: {fileID: 0}
+    - target: {fileID: 3184296082582976761, guid: 8117be638923c5a418efbdc8895f60ed, type: 3}
+      propertyPath: isHoming
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5643124579535266341, guid: 8117be638923c5a418efbdc8895f60ed, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime0
       value: 21357
