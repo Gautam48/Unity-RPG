@@ -138,7 +138,6 @@ namespace RPG.Combat
 
         public void RestoreState(object state)
         {
-            print((string)state);
             string weaponName = (string)state;
             Weapon weapon = Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
