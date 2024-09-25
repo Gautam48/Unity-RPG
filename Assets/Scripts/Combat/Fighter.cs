@@ -13,7 +13,8 @@ namespace RPG.Combat
         [Range(0, 1)][SerializeField] float patrolSpeedFraction = 0.2f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
-        [SerializeField] Weapon defaultweapon = null;
+        [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] string defaultWeaponName = "Unarmed";
 
         Health target;
         Weapon currentWeapon = null;
@@ -22,7 +23,8 @@ namespace RPG.Combat
 
         void Start()
         {
-            EquipWeapon(defaultweapon);
+            Weapon weapon = Resources.Load<Weapon>(defaultWeaponName);
+            EquipWeapon(weapon);
 
         }
 
