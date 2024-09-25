@@ -4,58 +4,74 @@ using RPG.Core;
 using UnityEditor;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace RPG.Combat
 {
-    [SerializeField] float speed = 1;
-    [SerializeField] bool isHoming = false;
-    [SerializeField] GameObject hitEffect = null;
-
-    Health target = null;
-
-    float damage = 0;
-
-    void Start()
+    public class Projectile : MonoBehaviour
     {
-        transform.LookAt(GetAimLocation());
-    }
+        [SerializeField] float speed = 1;
+        [SerializeField] bool isHoming = false;
+        [SerializeField] GameObject hitEffect = null;
+        [SerializeField] GameObject[] destroyOnHit = null;
+        [SerializeField] float lifeAfterImpact = 0.3f;
 
-    void Update()
-    {
-        if (target == null) return;
+        Health target = null;
 
-        if (isHoming && !target.IsDead)
+        float damage = 0;
+
+        void Start()
         {
             transform.LookAt(GetAimLocation());
         }
 
-        transform.Translate(speed * Time.deltaTime * Vector3.forward);
-    }
-
-    Vector3 GetAimLocation()
-    {
-        CapsuleCollider capsule = target.GetComponent<CapsuleCollider>();
-        if (capsule == null)
+        void Update()
         {
-            return target.transform.position;
+            if (target == null) return;
+
+            if (isHoming && !target.IsDead)
+            {
+                transform.LookAt(GetAimLocation());
+            }
+
+            transform.Translate(speed * Time.deltaTime * Vector3.forward);
         }
-        return target.transform.position + Vector3.up * capsule.height / 2;
-    }
 
-    public void SetTarget(Health target, float damage)
-    {
-        this.target = target;
-        this.damage = damage;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Health>() != target) return;
-        if (target.IsDead) return;
-        if (hitEffect != null)
+        Vector3 GetAimLocation()
         {
-            Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+            CapsuleCollider capsule = target.GetComponent<CapsuleCollider>();
+            if (capsule == null)
+            {
+                return target.transform.position;
+            }
+            return target.transform.position + Vector3.up * capsule.height / 2;
         }
-        target.TakeDamage(damage);
-        Destroy(gameObject);
+
+        public void SetTarget(Health target, float damage)
+        {
+            this.target = target;
+            this.damage = damage;
+
+            Destroy(gameObject, 5f);
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.GetComponent<Health>() != target) return;
+            if (target.IsDead) return;
+            if (hitEffect != null)
+            {
+                Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+            }
+
+            target.TakeDamage(damage);
+
+            speed = 0;
+
+            foreach (GameObject toDestroy in destroyOnHit)
+            {
+                Destroy(toDestroy);
+            }
+
+            Destroy(gameObject, lifeAfterImpact);
+        }
     }
 }
