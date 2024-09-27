@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using RPG.Core;
 using RPG.Saving;
 using JetBrains.Annotations;
+using RPG.Attributes;
 
 namespace RPG.Combat
 {

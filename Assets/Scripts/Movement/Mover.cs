@@ -6,6 +6,7 @@ using RPG.Core;
 using RPG.Saving;
 using Unity.VisualScripting;
 using System;
+using RPG.Attributes;
 
 namespace RPG.Movement
 {

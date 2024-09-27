@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Core;
 using RPG.Saving;
+using RPG.Stats;
 using UnityEngine;
 
-namespace RPG.Core
+namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
@@ -11,6 +13,11 @@ namespace RPG.Core
 
         bool isDead = false;
         public bool IsDead { get { return isDead; } }
+
+        private void Start()
+        {
+            healthPoints = GetComponent<BaseStat>().GetHealth();
+        }
 
         public void TakeDamage(float damage)
         {
