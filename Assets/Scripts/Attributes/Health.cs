@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Core;
@@ -26,6 +27,11 @@ namespace RPG.Attributes
             {
                 Die();
             }
+        }
+
+        public float GetPercentage()
+        {
+            return 100 * healthPoints / GetComponent<BaseStat>().GetHealth();
         }
 
         private void Die()
