@@ -53,6 +53,11 @@ namespace RPG.Combat
             }
         }
 
+        public Health GetTarget()
+        {
+            return target;
+        }
+
         public void EquipWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
