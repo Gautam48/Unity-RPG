@@ -20,12 +20,13 @@ namespace RPG.Attributes
             healthPoints = GetComponent<BaseStat>().GetHealth();
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(float damage, GameObject instigator)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
             if (healthPoints == 0)
             {
                 Die();
+                AwardExperience(instigator);
             }
         }
 
@@ -41,6 +42,14 @@ namespace RPG.Attributes
             isDead = true;
             GetComponent<Animator>().SetTrigger("die");
             GetComponent<ActionScheduler>().CancelCurrentAction();
+        }
+
+        void AwardExperience(GameObject instigator)
+        {
+            Experience experience = instigator.GetComponent<Experience>();
+            if (experience == null) return;
+
+            experience.GainExperience(instigator.GetComponent<BaseStat>().GetExperienceReward());
         }
 
         public object CaptureState()
