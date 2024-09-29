@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 namespace RPG.Stats
@@ -21,12 +22,15 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat)
         {
-            return progression.GetStat(stat, characterClass, startingLevel);
+            return progression.GetStat(stat, characterClass, GetLevel());
         }
 
         public int GetLevel()
         {
-            float currentXP = GetComponent<Experience>().ExperiencePoints;
+            Experience experience = GetComponent<Experience>();
+            if (experience == null) return startingLevel;
+
+            float currentXP = experience.ExperiencePoints;
 
             int penultimateLevel = progression.GetLevels(characterClass, Stat.ExperienceToLovelUp);
 
