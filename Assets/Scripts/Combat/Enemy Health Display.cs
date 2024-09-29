@@ -18,7 +18,6 @@ namespace RPG.Combat
 
         void Update()
         {
-            print(fighter.GetTarget());
             if (fighter.GetTarget() == null)
             {
                 GetComponent<TextMeshProUGUI>().text = "N/A";
