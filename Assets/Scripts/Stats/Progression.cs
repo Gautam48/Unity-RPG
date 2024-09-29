@@ -13,28 +13,6 @@ namespace RPG.Stats
 
         Dictionary<CharacterClass, Dictionary<Stat, float[]>> lookupTable = null;
 
-        public float GetStat(Stat stat, CharacterClass characterClass, int level)
-        {
-            BuildLookup();
-            if (lookupTable[characterClass][stat].Length < level) return 0;
-
-            return lookupTable[characterClass][stat][level - 1];
-
-            // foreach (ProgressionCharacterClass progressionClass in characterClasses)
-            // {
-            //     if (progressionClass.characterClass != characterClass) continue;
-
-            //     foreach (ProgressionStat progressionStat in progressionClass.stats)
-            //     {
-            //         if (progressionStat.stat != stat) continue;
-            //         if (progressionStat.level.Length < level) continue;
-
-            //         return progressionStat.level[level - 1];
-            //     }
-            // }
-            // return 0;
-        }
-
         [System.Serializable]
         class ProgressionCharacterClass
         {
@@ -50,7 +28,15 @@ namespace RPG.Stats
             public float[] level;
         }
 
-        private void BuildLookup()
+        public float GetStat(Stat stat, CharacterClass characterClass, int level)
+        {
+            BuildLookup();
+            if (lookupTable[characterClass][stat].Length < level) return 0;
+
+            return lookupTable[characterClass][stat][level - 1];
+        }
+
+        void BuildLookup()
         {
             if (lookupTable != null) return;
             lookupTable = new Dictionary<CharacterClass, Dictionary<Stat, float[]>>();
@@ -66,7 +52,13 @@ namespace RPG.Stats
 
                 lookupTable[progressionClass.characterClass] = statLookup;
             }
+        }
 
+        public int GetLevels(CharacterClass characterClass, Stat stat)
+        {
+            BuildLookup();
+            float[] levels = lookupTable[characterClass][stat];
+            return levels.Length;
         }
     }
 }
