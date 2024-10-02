@@ -7,6 +7,7 @@ using RPG.Core;
 using RPG.Saving;
 using JetBrains.Annotations;
 using RPG.Attributes;
+using RPG.Stats;
 
 namespace RPG.Combat
 {
@@ -120,14 +121,16 @@ namespace RPG.Combat
         {
             if (target == null) return;
 
+            float damage = GetComponent<BaseStat>().GetStat(Stat.Damage);
+
             if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
             else
             {
 
-                target.TakeDamage(currentWeapon.WeaponDamage, gameObject);
+                target.TakeDamage(damage, gameObject);
             }
 
         }

@@ -19,7 +19,7 @@ namespace RPG.Attributes
 
         private void Start()
         {
-            GetComponent<BaseStat>().onLevelUp += RegenerateHealth;
+            GetComponent<BaseStat>().OnLevelUp += RegenerateHealth;
             if (healthPoints < 0)
             {
                 healthPoints = GetComponent<BaseStat>().GetStat(Stat.Health);
@@ -34,6 +34,16 @@ namespace RPG.Attributes
                 Die();
                 AwardExperience(instigator);
             }
+        }
+
+        public float GetHealthPoints()
+        {
+            return healthPoints;
+        }
+
+        public float GetMaxHealthPoints()
+        {
+            return GetComponent<BaseStat>().GetStat(Stat.Health);
         }
 
         public float GetPercentage()

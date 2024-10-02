@@ -16,7 +16,7 @@ namespace RPG.Stats
 
         int currentLevel = 0;
 
-        public event Action onLevelUp;
+        public event Action OnLevelUp;
 
         void Start()
         {
@@ -24,7 +24,7 @@ namespace RPG.Stats
             Experience experience = GetComponent<Experience>();
             if (experience != null)
             {
-                experience.onExperienceGained += UpdateLevel;
+                experience.OnExperienceGained += UpdateLevel;
             }
         }
 
@@ -35,7 +35,7 @@ namespace RPG.Stats
             {
                 currentLevel = newLevel;
                 LevelUpEffect();
-                onLevelUp();
+                OnLevelUp();
             }
         }
 
@@ -66,11 +66,11 @@ namespace RPG.Stats
 
             float currentXP = experience.ExperiencePoints;
 
-            int penultimateLevel = progression.GetLevels(characterClass, Stat.ExperienceToLovelUp);
+            int penultimateLevel = progression.GetLevels(characterClass, Stat.ExperienceToLevelUp);
 
             for (int level = 1; level <= penultimateLevel; level++)
             {
-                float XPToLevelUp = progression.GetStat(Stat.ExperienceToLovelUp, characterClass, level);
+                float XPToLevelUp = progression.GetStat(Stat.ExperienceToLevelUp, characterClass, level);
 
                 if (XPToLevelUp > currentXP)
                 {
