@@ -11,7 +11,7 @@ using RPG.Stats;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [Range(0, 1)][SerializeField] float patrolSpeedFraction = 0.2f;
@@ -116,6 +116,14 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
+        public IEnumerable<float> GetAdditiveModifier(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.WeaponDamage;
+            }
+        }
+
         //Animation event
         void Hit()
         {
@@ -152,5 +160,6 @@ namespace RPG.Combat
             EquipWeapon(weapon);
 
         }
+
     }
 }
