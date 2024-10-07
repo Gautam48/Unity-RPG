@@ -124,6 +124,13 @@ namespace RPG.Combat
             }
         }
 
+        public IEnumerable<float> GetPercetegeModifier(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.PercentageBonus;
+            }
+        }
         //Animation event
         void Hit()
         {

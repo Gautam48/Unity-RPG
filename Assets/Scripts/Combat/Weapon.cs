@@ -11,11 +11,16 @@ namespace RPG.Combat
         [SerializeField] GameObject weaponPrefab = null;
         [SerializeField] AnimatorOverrideController animatorOverride = null;
         [SerializeField] Projectile projectile = null;
+        [SerializeField] bool isRgihtHanded = true;
+
         [SerializeField] float weaponRange = 2f;
         public float WeaponRange { get { return weaponRange; } }
+
         [SerializeField] float weaponDamage = 10f;
         public float WeaponDamage { get { return weaponDamage; } }
-        [SerializeField] bool isRgihtHanded = true;
+
+        [SerializeField] float percentageBonus = 0;
+        public float PercentageBonus { get { return percentageBonus; } }
 
         const string weaponName = "Weapon";
 
