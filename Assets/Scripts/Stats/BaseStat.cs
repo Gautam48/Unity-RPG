@@ -14,19 +14,42 @@ namespace RPG.Stats
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
         [SerializeField] GameObject LevelUpParticleEffect = null;
+        [SerializeField] bool shouldUseAdditiveModifiers = false;
+        [SerializeField] bool shouldUsePercentageModifiers = false;
 
-        bool shouldUseModifiers = false;
+        Experience experience;
+
         int currentLevel = 0;
 
         public event Action OnLevelUp;
 
+        void Awake()
+        {
+            experience = GetComponent<Experience>();
+        }
+
         void Start()
         {
             currentLevel = CalculateLevel();
-            Experience experience = GetComponent<Experience>();
             if (experience != null)
             {
                 experience.OnExperienceGained += UpdateLevel;
+            }
+        }
+
+        void OnEnable()
+        {
+            if (experience != null)
+            {
+                experience.OnExperienceGained += UpdateLevel;
+            }
+        }
+
+        void OnDisable()
+        {
+            if (experience != null)
+            {
+                experience.OnExperienceGained -= UpdateLevel;
             }
         }
 
@@ -59,7 +82,7 @@ namespace RPG.Stats
 
         float GetAdditiveModifier(Stat stat)
         {
-            if (!shouldUseModifiers) return 0;
+            if (!shouldUseAdditiveModifiers) return 0;
 
             float total = 0;
 
@@ -76,7 +99,7 @@ namespace RPG.Stats
 
         float GetPercentageModifier(Stat stat)
         {
-            if (!shouldUseModifiers) return 0;
+            if (!shouldUsePercentageModifiers) return 0;
 
             float total = 0;
 

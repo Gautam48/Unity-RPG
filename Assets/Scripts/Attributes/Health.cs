@@ -19,11 +19,20 @@ namespace RPG.Attributes
 
         private void Start()
         {
-            GetComponent<BaseStat>().OnLevelUp += RegenerateHealth;
             if (healthPoints < 0)
             {
                 healthPoints = GetComponent<BaseStat>().GetStat(Stat.Health);
             }
+        }
+
+        private void OnEnable()
+        {
+            GetComponent<BaseStat>().OnLevelUp += RegenerateHealth;
+        }
+
+        private void OnDisable()
+        {
+            GetComponent<BaseStat>().OnLevelUp += RegenerateHealth;
         }
 
         public void TakeDamage(float damage, GameObject instigator)

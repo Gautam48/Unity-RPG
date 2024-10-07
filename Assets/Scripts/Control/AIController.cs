@@ -29,13 +29,16 @@ namespace RPG.Control
         float waypointTolerance = 1f;
         int currentWaypointIndex = 0;
 
-        void Start()
+        void Awake()
         {
             player = GameObject.FindGameObjectWithTag("Player");
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
+        }
 
+        void Start()
+        {
             guardPosition = transform.position;
         }
 
