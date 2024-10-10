@@ -61,7 +61,7 @@ namespace RPG.Control
 
         private bool InteractithComponent()
         {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            RaycastHit[] hits = RaycastAllSorted();
             foreach (RaycastHit hit in hits)
             {
                 IRayCastable[] rayCastables = hit.transform.GetComponents<IRayCastable>();
@@ -92,6 +92,18 @@ namespace RPG.Control
                 return true;
             }
             return false;
+        }
+
+        private RaycastHit[] RaycastAllSorted()
+        {
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            float[] distances = new float[hits.Length];
+            for (int i = 0; i < hits.Length; i++)
+            {
+                distances[i] = hits[i].distance;
+            }
+            Array.Sort(distances, hits);
+            return hits;
         }
 
         void SetCursor(CursorType type)
