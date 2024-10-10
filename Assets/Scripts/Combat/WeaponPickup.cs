@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Control;
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -48,6 +49,11 @@ namespace RPG.Combat
                 Pickup(player.GetComponent<Fighter>());
             }
             return true;
+        }
+
+        public CursorType GetCursorType()
+        {
+            return CursorType.Pickup;
         }
     }
 }
