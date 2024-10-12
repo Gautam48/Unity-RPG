@@ -13,6 +13,7 @@ namespace RPG.UI.DamageText
         public void Spawn(float damage)
         {
             DamageText instance = Instantiate(damageText, transform);
+            instance.SetValue(damage);
         }
     }
 }
