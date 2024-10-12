@@ -12,8 +12,11 @@ namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
+        [System.Serializable]
+        class TakeDamageEvent : UnityEvent<float> { }
+
         [SerializeField] float regenerationPercent = 70f;
-        [SerializeField] UnityEvent takeDamage;
+        [SerializeField] TakeDamageEvent takeDamage;
 
         LazyValue<float> healthPoints;
 
@@ -55,7 +58,7 @@ namespace RPG.Attributes
             }
             else
             {
-                takeDamage.Invoke();
+                takeDamage.Invoke(damage);
             }
         }
 

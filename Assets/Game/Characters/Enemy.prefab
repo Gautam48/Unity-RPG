@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
