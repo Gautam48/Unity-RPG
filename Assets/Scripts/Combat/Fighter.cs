@@ -153,7 +153,7 @@ namespace RPG.Combat
 
             if (currentWeapon.value != null)
             {
-                currentWeapon.value.onHit();
+                currentWeapon.value.OnHit();
             }
 
             float damage = GetComponent<BaseStat>().GetStat(Stat.Damage);

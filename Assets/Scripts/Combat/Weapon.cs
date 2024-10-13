@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG.Combat
 {
     public class Weapon : MonoBehaviour
     {
-        public void onHit()
-        {
+        [SerializeField] UnityEvent onHit;
 
+        public void OnHit()
+        {
+            print("Attack!");
+            onHit.Invoke();
         }
     }
 }
