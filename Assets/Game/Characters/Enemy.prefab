@@ -16,38 +16,6 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
-      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
-      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
-      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2685703329921252732}
-    - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
-      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
-      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Spawn
-      objectReference: {fileID: 0}
-    - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
-      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RPG.UI.DamageText.DamageTextSpawner, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
-      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 678061239781663361, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
-      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1385096107316424866, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5334616
@@ -160,17 +128,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1385096107316424866, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
   m_PrefabInstance: {fileID: 798348196525273347}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2685703329921252732 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3337665980539882623, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}
-  m_PrefabInstance: {fileID: 798348196525273347}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 534de0e88dfd70d4498ae59017f05088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7524613900853235195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7167620702959615224, guid: 4fffc3d51412fb747b56543b1eaf04c4, type: 3}

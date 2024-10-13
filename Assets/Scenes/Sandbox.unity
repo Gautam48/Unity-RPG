@@ -1843,6 +1843,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7861414684642919778, guid: f162a62fb85c039468e16577f444b54b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195803387131203587, guid: f162a62fb85c039468e16577f444b54b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3862,6 +3870,14 @@ PrefabInstance:
     - target: {fileID: 7861414684642919778, guid: f162a62fb85c039468e16577f444b54b, type: 3}
       propertyPath: m_Name
       value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861414684642919778, guid: f162a62fb85c039468e16577f444b54b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195803387131203587, guid: f162a62fb85c039468e16577f444b54b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
